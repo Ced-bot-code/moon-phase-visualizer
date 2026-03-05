@@ -34,14 +34,18 @@ function getPhaseKey(p) {
 function drawMoon() {
   const p = parseFloat(sliders.phase.value);
   const angle = parseFloat(sliders.angle.value);
-  const dist = parseFloat(sliders.distance.value);
-  const alt = parseFloat(sliders.altitude.value);
+  const dist = parseFloat(sliders.distance.value); // Kining dist karon kay in km na
+  const altitude = parseFloat(sliders.altitude.value);
 
-  const radius = 85 - ((dist - 31.44) / (32.55 - 31.44)) * 10;
-  const light = alt < 0 ? "#686869" : "#e1e2e3";
-  const dark = alt < 0 ? "#111" : "#222";
+  const minRadius = 75; // Size at Apogee
+  const maxRadius = 95; // Size at Perigee
+  const radius = maxRadius - ((dist - 356400) / (406700 - 356400)) * (maxRadius - minRadius);
+
+  const light = altitude < 0 ? "#444" : "#e1e2e3"; // Mas natural nga dimming
+  const dark = altitude < 0 ? "#050505" : "#222";
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
@@ -49,49 +53,46 @@ function drawMoon() {
   ctx.translate(cx, cy);
   ctx.rotate(angle * Math.PI / 180);
 
- 
+  // Background Disk (Shadow part)
   ctx.beginPath();
   ctx.arc(0, 0, radius, 0, Math.PI * 2);
   ctx.fillStyle = dark;
   ctx.fill();
-  ctx.beginPath();
 
-  if(p <= 0.5){
+  // Primary Semi-circle (Light part)
+  ctx.beginPath();
+  if (p <= 0.5) {
     ctx.arc(0, 0, radius, -Math.PI / 2, Math.PI / 2, false); // Right side
-  }
-  else{
+  } else {
     ctx.arc(0, 0, radius, Math.PI / 2, -Math.PI / 2, false); // Left side
   }
-
   ctx.fillStyle = light;
   ctx.fill();
 
-  
+  // Terminator (The Ellipse that creates the phase effect)
   let s = Math.cos(p * 2 * Math.PI);
   let rx = Math.abs(s) * radius;
-
   ctx.beginPath();
-
   ctx.ellipse(0, 0, rx, radius, 0, 0, Math.PI * 2);
-
+  
   if(p <= 0.25 || p >= 0.75){
-    ctx.fillStyle = dark;
+    ctx.fillStyle = dark; // For Crescent phases
   }
   else{
-    ctx.fillStyle = light;
+    ctx.fillStyle = light; // For Gibbous phases
   }
-
   ctx.fill();
-
+  
   ctx.restore();
 
   // Logic for Labels and Info
   const key = getPhaseKey(p);
   const illum = p <= 0.5 ? (p / 0.5) * 100 : ((1 - p) / 0.5) * 100;
+
   disp.innerHTML = `${key}`;
   details.innerHTML = `
     Illumination: <strong>${illum.toFixed(2)}%</strong><br>
-    Distance: <strong>${(dist * 11782).toFixed(0)} km</strong><br>
-    Altitude: <strong>${alt}°</strong>
+    Distance: <strong>${dist.toLocaleString()} km</strong><br>
+    Altitude: <strong>${altitude}°</strong>
   `;
 }
