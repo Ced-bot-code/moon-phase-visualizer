@@ -16,7 +16,7 @@
  */
 
 const phaseNames = [
-   'New Moon',
+  'New Moon',
   'Waxing Crescent',
   'First Quarter',
   'Waxing Gibbous',
@@ -35,14 +35,14 @@ function drawMoon() {
   const p = parseFloat(sliders.phase.value);
   const angle = parseFloat(sliders.angle.value);
   const dist = parseFloat(sliders.distance.value); // Kining dist karon kay in km na
-  const altitude = parseFloat(sliders.altitude.value);
+  const alt = parseFloat(sliders.altitude.value);
 
   const minRadius = 75; // Size at Apogee
   const maxRadius = 95; // Size at Perigee
   const radius = maxRadius - ((dist - 356400) / (406700 - 356400)) * (maxRadius - minRadius);
 
-  const light = altitude < 0 ? "#444" : "#e1e2e3"; // Mas natural nga dimming
-  const dark = altitude < 0 ? "#050505" : "#222";
+  const light = alt < 0 ? "#444" : "#e1e2e3"; // Mas natural nga dimming
+  const dark = alt < 0 ? "#050505" : "#222";
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -63,7 +63,8 @@ function drawMoon() {
   ctx.beginPath();
   if (p <= 0.5) {
     ctx.arc(0, 0, radius, -Math.PI / 2, Math.PI / 2, false); // Right side
-  } else {
+  }
+  else{
     ctx.arc(0, 0, radius, Math.PI / 2, -Math.PI / 2, false); // Left side
   }
   ctx.fillStyle = light;
@@ -75,7 +76,7 @@ function drawMoon() {
   ctx.beginPath();
   ctx.ellipse(0, 0, rx, radius, 0, 0, Math.PI * 2);
   
-  if(p <= 0.25 || p >= 0.75){
+  if (p <= 0.25 || p >= 0.75) {
     ctx.fillStyle = dark; // For Crescent phases
   }
   else{
@@ -93,6 +94,7 @@ function drawMoon() {
   details.innerHTML = `
     Illumination: <strong>${illum.toFixed(2)}%</strong><br>
     Distance: <strong>${dist.toLocaleString()} km</strong><br>
-    Altitude: <strong>${altitude}°</strong>
+    Altitude: <strong>${alt}°</strong>
   `;
 }
+
