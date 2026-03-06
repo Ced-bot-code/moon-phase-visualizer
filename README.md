@@ -1,4 +1,4 @@
-# 🌒 Moon Phase Visualizer
+# 🌒 Moon Phase Demo
 
 An interactive **Moon phase simulator** built with **JavaScript** and the **HTML Canvas API**.  
 Adjust the Moon’s phase, rotation, distance, and altitude using intuitive sliders.  
