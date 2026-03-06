@@ -84,29 +84,21 @@ cd moon-phase-visualizer
 git checkout -b moon-visual
 ```
 
-Example:
-
-```bash
-git checkout -b moon-visual
-```
-
 4. **Make your changes**
 
 Possible areas for contribution:
 - Improve Moon rendering accuracy
 - UI/UX improvements
 - Performance optimizations
-- Astronomical calculations
 - Documentation updates
 
 5. **Commit your changes**
-
 
 ```bash
 git add .
 git commit -m "Updated 0110 Improve moon shading algorithm"
 ```
-Example "Updated HHMM Changes you made
+Example format "Updated HHMM Changes you made
 
 6. **Push your branch**
 
@@ -124,12 +116,9 @@ Go to the original repository on GitHub and create a **Pull Request** describing
 
 If you're looking for ways to contribute, here are some ideas:
 
-- Add **real lunar cycle calculations**
 - Improve **lighting and shading realism**
 - Add **Moon surface textures**
-- Implement **time-based Moon movement**
 - Improve **mobile UI controls**
-- Add **dark mode or themes**
 - Add **educational labels for Moon phases**
 
 ---
