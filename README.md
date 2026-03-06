@@ -70,7 +70,7 @@ Developers are encouraged to customize or extend the function to suit their own 
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to improve the **Moon Phase Visualizer**, add features, fix bugs, or enhance the documentation, feel free to contribute.
+Contributions are welcome! If you'd like to improve the **Moon Phase Demo**, add features, fix bugs, or enhance the documentation, feel free to contribute.
 
 ### How to Contribute
 
@@ -79,8 +79,8 @@ Contributions are welcome! If you'd like to improve the **Moon Phase Visualizer*
 2. **Clone your fork locally**
 
 ```bash
-git clone https://github.com/your-username/moon-phase-visualizer.git
-cd moon-phase-visualizer
+git clone https://github.com/your-username/moon-phase-demo.git
+cd moon-phase-demo
 ```
 
 3. **Create a new branch for your changes**
