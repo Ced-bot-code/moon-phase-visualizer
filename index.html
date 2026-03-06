@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Moon Phase visualizer</title>
+<title>Moon Phase Visualizer | Interactive Lunar Phase Simulator | Ced-bot-code</title>
+<meta name="description" content="Interactive Moon Phase Visualizer built with JavaScript Canvas. Explore lunar phases, illumination, rotation, altitude, and distance in real time.">
+<meta name="keywords" content="moon phase, lunar phase, moon visualizer, moon simulation, astronomy, javascript canvas, lunar illumination, moon cycle">
+<meta name="author" content="Cedie Camomot">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ced-bot-code.github.io/moon-phase-visualizer/">
+<meta property="og:title" content="Moon Phase Visualizer">
+<meta property="og:description" content="Interactive lunar phase simulator using JavaScript Canvas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ced-bot-code.github.io/moon-phase-visualizer/">
+
 <style>
   body {
     background: #000;
@@ -59,7 +69,6 @@
 </style>
 </head>
 <body>
-
   <h2>Moon phase</h2>
   
   <canvas id="canvasId" width="300" height="300"></canvas>
@@ -105,7 +114,7 @@ const sliders = {
   altitude: document.getElementById("altitude")
 };
   
-function initializeAnimation() {
+function initializeAnimation(){
   // Draw the Moon based on current slider values
   // drawMoon(canvasId:HTMLIdAttr, input:obj)
   drawMoon("canvasId", sliders);
