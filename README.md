@@ -40,7 +40,7 @@ The Moon dims automatically when placed below the horizon (altitude < 0°), mimi
 ## Live Demo
 
 🌙
-[Moon Phase Visualizer](https://ced-bot-code.github.io/moon-phase-visualizer/)
+[Moon Phase Demo](https://ced-bot-code.github.io/moon-phase-demo/)
 
 ## Kickstarter
 
