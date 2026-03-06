@@ -37,6 +37,11 @@ The Moon dims automatically when placed below the horizon (altitude < 0°), mimi
    - **Altitude** – Controls brightness; the Moon dims when placed below the horizon.
 4. The Moon visualization updates instantly based on the selected slider values.
 
+## Live Demo
+
+🌙
+[Moon Phase Visualizer](https://ced-bot-code.github.io/moon-phase-visualizer/)
+
 ## Kickstarter
 
 Want to use this Moon phase visualizer in your own project?
