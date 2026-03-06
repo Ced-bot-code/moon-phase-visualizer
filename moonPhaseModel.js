@@ -56,8 +56,8 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
   const ctx = canvas.getContext("2d");
 
   // Parse the input values for phase, angle, distance, and altitude
-  const p = parseFloat(inputs.phase.value);
-  const angle = parseFloat(inputs.angle.value);
+  const phaseNum = parseFloat(inputs.phase.value);
+  const rotation = parseFloat(inputs.rotation.value);
   const dist = parseFloat(inputs.distance.value);
   const alt = parseFloat(inputs.altitude.value);
 
@@ -76,7 +76,7 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
 
   ctx.save();
   ctx.translate(cx, cy);
-  ctx.rotate(angle * Math.PI / 180);
+  ctx.rotate(rotation * Math.PI / 180);
 
   ctx.beginPath();
   ctx.arc(0, 0, radius+0.5, 0, Math.PI * 2);
@@ -84,7 +84,7 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
   ctx.fill();
 
   // Draw the light part of the Moon based on the phase
-  let s = Math.cos(p * 2 * Math.PI);
+  let s = Math.cos(phaseNum * 2 * Math.PI);
   let rx = Math.round(Math.abs(s) * radius-0.00002322); // Subtract a tiny value to prevent artifacts at 0 and 1 phase
 
   ctx.beginPath();
@@ -92,7 +92,7 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
   // Depending on the phase, we draw the light on either the Eastern or Western side of the Moon
   const EASTERN_LIGHT = [0, 0, radius, -Math.PI / 2, Math.PI / 2, false]; // (0 to 0.5) - Light at the Eastern side of horizon
   const WESTERN_LIGHT = [0, 0, radius, Math.PI / 2, -Math.PI / 2, false]; // (0.5 to 1) - Light at the Western side of horizon
-  const PORTION = p <= 0.5 ? EASTERN_LIGHT : WESTERN_LIGHT;
+  const PORTION = phaseNum <= 0.5 ? EASTERN_LIGHT : WESTERN_LIGHT;
   
   ctx.arc(...PORTION);
   ctx.fillStyle = light;
@@ -102,7 +102,7 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
   ctx.beginPath();
   ctx.ellipse(0, 0, rx, radius + 0.5, 0, 0, Math.PI * 2);
 
-  const brightNess = (p <= 0.25 || p >= 0.75) ? dark : light;
+  const brightNess = (phaseNum <= 0.25 || phaseNum >= 0.75) ? dark : light;
 
   // Fill the terminator with the appropriate brightness to create a smoother transition between the light and dark sides of the Moon
   ctx.fillStyle = brightNess;
