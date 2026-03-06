@@ -111,7 +111,7 @@ function initializeAnimation() {
   drawMoon("canvasId", sliders);
     // Logic for Labels and Info
 
-  const kNum = parseFloat(sliders.phase.value);
+  const kNum = parseFloat(sliders.phase.value)
       , key = getPhaseKey(kNum)
       , illum = kNum <= 0.5 ? (kNum / 0.5) * 100 : ((1 - kNum) / 0.5) * 100
       , AppAltitude = parseFloat(sliders.altitude.value)
