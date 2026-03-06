@@ -66,9 +66,9 @@ function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
 
   // Determine the colors for the light and dark sides of the Moon based on its altitude. The Moon appears dimmer when it's below the horizon (altitude < 0°).
   const MOON_BELOW_HORIZON_ALTITUDE= -0.125;
-  const light = alt < MOON_BELOW_HORIZON_ALTITUDE ? "#444" : "#e1e2e3";
-  const dark = alt < MOON_BELOW_HORIZON_ALTITUDE ? "#050505" : "#222";
-
+  const light = alt < MOON_BELOW_HORIZON_ALTITUDE ? "#333" : "#e1e2e3";
+  const dark = alt < MOON_BELOW_HORIZON_ALTITUDE ? "#050505" : "#111";
+  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const cx = Math.round(canvas.width / 2);
