@@ -51,7 +51,7 @@ function getPhaseKey(p) {
  * 
  */
 
-function drawMoon(canvasId, inputs, apogee = 75, perigee = 95) {
+function drawMoonPhase(canvasId, inputs, apogee = 75, perigee = 95) {
   const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext("2d");
 
